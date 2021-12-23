@@ -21,7 +21,7 @@ def iteration_computation(A_matrix, f, b, tolerance=1e-10, max_iteration=1000):
         x_old = x.copy()
         for i in range(n):
             x = f + np.dot(b, x_old)
-        if np.linalg.norm(x - x_old, 2) / np.linalg.norm(x, 2) < tolerance:
+        if np.linalg.norm(b - np.dot(A_matrix, x), 2) / np.linalg.norm(b, 2) < tolerance:
             break
     return x
 
